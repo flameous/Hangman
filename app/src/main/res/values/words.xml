@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+
+    <string-array name="goodArray">
+
+        <item>"book"</item>
+        <item>"underground"</item>
+        <item>"dinner"</item>
+        <item>"duck"</item>
+        <item>"england"</item>
+        <item>"russia"</item>
+        <item>"sabantuy"</item>
+        <item>"android"</item>
+
+    </string-array>
+</resources>
