@@ -12,9 +12,19 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="STAЯT GAEM"
+        android:text="Start game"
         android:id="@+id/button"
-        android:layout_centerVertical="true"
+        android:onClick="startClick"
+        android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:onClick="startClick" />
+        android:layout_marginBottom="103dp" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="300dp"
+        android:id="@+id/imageView2"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/pic7"
+        android:layout_above="@+id/button" />
 </RelativeLayout>

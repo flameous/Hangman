@@ -4,14 +4,32 @@
 
     <string-array name="goodArray">
 
-        <item>"book"</item>
-        <item>"underground"</item>
-        <item>"dinner"</item>
-        <item>"duck"</item>
-        <item>"england"</item>
-        <item>"russia"</item>
-        <item>"sabantuy"</item>
-        <item>"android"</item>
+        <item>"book Учёба"</item>
+        <item>"underground Город"</item>
+        <item>"dinner Еда"</item>
+        <item>"duck Животные"</item>
+        <item>"england Cтраны"</item>
+        <item>"russia Cтраны"</item>
+        <item>"sabantuy Башкортостан"</item>
+        <item>"android Компьютеры"</item>
+        <item>"internet Компьютеры"</item>
+        <item>"sound Физика"</item>
+        <item>"pigeon Животные"</item>
+        <item>"dolphin Животные"</item>
+        <item>"camel Животные"</item>
+        <item>"tiger Животные"</item>
+        <item>"leopard Животные"</item>
+        <item>"alligator Животные"</item>
+        <item>"lizard Животные"</item>
+        <item>"pencil Учёба"</item>
+        <item>"university Учёба"</item>
+        <item>"school Учёба"</item>
+        <item>"graduation Учёба"</item>
+        <item>"breakfast Еда"</item>
+        <item>"lunch Еда"</item>
+        <item>"hamburger Еда"</item>
+        <item>"bread Еда"</item>
 
     </string-array>
+
 </resources>

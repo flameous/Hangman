@@ -26,7 +26,8 @@
         android:layout_alignLeft="@+id/gameButton"
         android:layout_alignStart="@+id/gameButton"
         android:layout_alignRight="@+id/gameButton"
-        android:layout_alignEnd="@+id/gameButton" />
+        android:layout_alignEnd="@+id/gameButton"
+        android:textAlignment="center" />
 
     <Button
         android:layout_width="wrap_content"
@@ -52,12 +53,4 @@
         android:textSize="38dp"
         android:typeface="monospace" />
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="debug"
-        android:id="@+id/debugButton"
-        android:layout_alignParentBottom="true"
-        android:layout_toEndOf="@+id/gameButton"
-        android:onClick="showAll" />
 </RelativeLayout>

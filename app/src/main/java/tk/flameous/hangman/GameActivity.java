@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.Random;
 
@@ -19,21 +20,22 @@ public class GameActivity extends AppCompatActivity {
 
     int numOfChars;
     int openedChars = 0;
-    String secretWord;
+    public static String secretWord;
     char[] secretChars;
     int tries = 0;
-    boolean isWin = false;
+    public static boolean isWin;
     char[] outputChars;
 
-    String fuck = "";
+    String text = "";
     boolean isNotLoh = false;
 
-    public static String endText = "loshara!";
+    boolean[] boolChars;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game);
+        isWin = false;
         secretText = (TextView)findViewById(R.id.textView);
         input = (EditText)findViewById(R.id.editText);
         imageView = (ImageView)findViewById(R.id.imageView);
@@ -41,32 +43,38 @@ public class GameActivity extends AppCompatActivity {
         String[] wordsArray = getResources().getStringArray(R.array.goodArray);
 
         Random random = new Random();
-        secretWord = wordsArray[random.nextInt(wordsArray.length)];
+        int randomWord = random.nextInt(wordsArray.length);
+        String[] strings = wordsArray[randomWord].split(" ");
+
+        secretWord = strings[0];
+        String helpWord = strings[1];
         numOfChars = secretWord.length();
         secretChars = new char[numOfChars];
         outputChars = new char[numOfChars];
+        boolChars = new boolean[numOfChars];
+
 
         for (int i = 0; i < numOfChars; i++){
             secretChars[i] = secretWord.charAt(i);
             outputChars[i] = '_';
         }
 
-        secretText.setText("-_-_-_-_-_-_-");
+        secretText.setText(helpWord + " (" + numOfChars + ")");
     }
 
     public void openChar(int a){
         openedChars++;
         outputChars[a] = secretChars[a];
+        boolChars[a] = true;
 
         if (openedChars == numOfChars){
             isWin = true;
-            endText = "Красава, братуха!";
         }
     }
 
     public void kostyl(int b){
         switch (b){
-            case 1: imageView.setImageResource(R.drawable.pic2);
+            case 1:imageView.setImageResource(R.drawable.pic2);
                 break;
             case 2:imageView.setImageResource(R.drawable.pic3);
                 break;
@@ -76,19 +84,29 @@ public class GameActivity extends AppCompatActivity {
                 break;
             case 5:imageView.setImageResource(R.drawable.pic6);
                 break;
-            default:break;
+            case 6:imageView.setImageResource(R.drawable.pic7);
+            default:
+                break;
         }
     }
 
     public void openClick(View view){
-        inputChar = input.getText().charAt(0);
+        String text = input.getText().toString().toLowerCase();
+        input.setText("");
+        if (text.length() == 1) {
+            inputChar = text.charAt(0);
+        }
+        else {
+            Toast.makeText(GameActivity.this, "Enter the char, please", Toast.LENGTH_SHORT).show();
+            return;
+        }
 
         for (int i = 0; i < numOfChars; i++) {
-            if (inputChar == secretChars[i]){
+            if ( (!(boolChars[i])) && (inputChar == secretChars[i]) ){
                 openChar(i);
                 isNotLoh = true;
             }
-            fuck += outputChars[i];
+            this.text += outputChars[i];
         }
 
         if (!(isNotLoh)){
@@ -97,10 +115,10 @@ public class GameActivity extends AppCompatActivity {
         }
         isNotLoh = false;
 
-        secretText.setText(fuck);
-        fuck = "";
+        secretText.setText(this.text);
+        this.text = "";
 
-        if ((tries == 5)||(isWin)){
+        if ((tries > 5)||(isWin)){
             Intent intent = new Intent(GameActivity.this, EndActivity.class);
             startActivity(intent);
             this.finish();
