@@ -43,14 +43,10 @@
         android:layout_height="wrap_content"
         android:text="New Text"
         android:id="@+id/textView"
-        android:layout_below="@+id/imageView"
-        android:layout_alignRight="@+id/imageView"
-        android:layout_alignEnd="@+id/imageView"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_above="@+id/editText"
         android:textAlignment="center"
         android:textSize="38dp"
-        android:typeface="monospace" />
+        android:typeface="monospace"
+        android:layout_below="@+id/imageView"
+        android:layout_centerHorizontal="true" />
 
 </RelativeLayout>
